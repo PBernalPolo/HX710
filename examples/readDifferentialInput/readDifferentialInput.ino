@@ -1,0 +1,47 @@
+
+#include "HX710.h"
+
+
+
+////////////////////////////////////////////////////////////////
+// PARAMETERS
+////////////////////////////////////////////////////////////////
+
+const int DOUT = 4;
+const int PD_SCK = 3;
+
+#define SERIAL_PLOTTER
+
+
+
+////////////////////////////////////////////////////////////////
+// SETUP
+////////////////////////////////////////////////////////////////
+
+HX710 ps;
+
+void setup() {
+    Serial.begin( 115200 );
+    ps.initialize( DOUT , PD_SCK );
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// LOOP
+////////////////////////////////////////////////////////////////
+
+void loop() {
+    int32_t value;
+    
+    while( !ps.isReady() );
+    ps.readAndSelectNextData( HX710_DIFFERENTIAL_INPUT_40HZ );
+    value = ps.getLastDifferentialInput();
+    
+#ifdef SERIAL_PLOTTER
+    Serial.println( value );
+#else
+    Serial.print( "differential input (40 Hz): " );
+    Serial.println( value );
+#endif
+}

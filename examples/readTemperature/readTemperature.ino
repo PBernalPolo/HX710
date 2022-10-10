@@ -1,0 +1,47 @@
+
+#include "HX710.h"
+
+
+
+////////////////////////////////////////////////////////////////
+// PARAMETERS
+////////////////////////////////////////////////////////////////
+
+const int DOUT = 4;
+const int PD_SCK = 3;
+
+#define SERIAL_PLOTTER
+
+
+
+////////////////////////////////////////////////////////////////
+// SETUP
+////////////////////////////////////////////////////////////////
+
+HX710 ps;
+
+void setup() {
+    Serial.begin( 115200 );
+    ps.initialize( DOUT , PD_SCK );
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// LOOP
+////////////////////////////////////////////////////////////////
+
+void loop() {
+    int32_t temp;
+    
+    while( !ps.isReady() );
+    ps.readAndSelectNextData( HX710_TEMPERATURE_40HZ );
+    temp = ps.getLastTemperature();
+    
+#ifdef SERIAL_PLOTTER
+    Serial.println( temp );
+#else
+    Serial.print( "temperature (40 Hz): " );
+    Serial.println( temp );
+#endif
+}
