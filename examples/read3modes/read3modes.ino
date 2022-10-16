@@ -22,7 +22,7 @@ HX710 ps;
 
 void setup() {
     Serial.begin( 115200 );
-    ps.initialize( DOUT , PD_SCK );
+    ps.initialize( PD_SCK , DOUT );
 }
 
 
@@ -35,12 +35,12 @@ void loop() {
     int32_t v1, v2, v3;
     
     while( !ps.isReady() );
-    ps.readAndSelectNextData( HX710_TEMPERATURE_40HZ );
+    ps.readAndSelectNextData( HX710_OTHER_INPUT_40HZ );
     v1 = ps.getLastDifferentialInput();
     
     while( !ps.isReady() );
     ps.readAndSelectNextData( HX710_DIFFERENTIAL_INPUT_40HZ );
-    v2 = ps.getLastTemperature();
+    v2 = ps.getLastOtherInput();
     
     while( !ps.isReady() );
     ps.readAndSelectNextData( HX710_DIFFERENTIAL_INPUT_10HZ );

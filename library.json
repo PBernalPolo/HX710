@@ -1,0 +1,18 @@
+{
+    "name": "HX710",
+    "keywords": "HX710, HX710A, HX710B, MPS20N0040D",
+    "description": "Arduino library for HX710. HX710 is a 24-Bit Analog-to-Digital Converter (ADC).",
+    "authors":
+    {
+        "name": "PBernalPolo",
+        "email": "pablo.bernal.polo@gmail.com",
+        "url": "https://github.com/PBernalPolo/HX710"
+    },
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/PBernalPolo/HX710.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "*"
+}

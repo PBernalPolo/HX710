@@ -22,7 +22,7 @@ HX710 ps;
 
 void setup() {
     Serial.begin( 115200 );
-    ps.initialize( DOUT , PD_SCK );
+    ps.initialize( PD_SCK , DOUT );
 }
 
 

@@ -1,0 +1,33 @@
+################################################################
+# Syntax Coloring Map For HX710 library
+################################################################
+
+
+################################################################
+# Class (KEYWORD1)
+################################################################
+
+HX710	KEYWORD1
+HX710Array   KEYWORD1
+
+
+################################################################
+# Methods and Functions (KEYWORD2)
+################################################################
+
+initialize  KEYWORD2
+isReady	KEYWORD2
+powerDown	KEYWORD2
+powerUp	KEYWORD2
+readAndSelectNextData	KEYWORD2
+getLastDifferentialInput	KEYWORD2
+getLastOtherInput	KEYWORD2
+
+
+################################################################
+# Constants (LITERAL1)
+################################################################
+
+HX710_DIFFERENTIAL_INPUT_10HZ	LITERAL1
+HX710_OTHER_INPUT_40HZ	LITERAL1
+HX710_DIFFERENTIAL_INPUT_40HZ	LITERAL1
